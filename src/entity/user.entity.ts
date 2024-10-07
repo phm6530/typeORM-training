@@ -62,7 +62,7 @@ export class UserModel {
 
   @OneToOne(() => ProfileModel, (profile) => profile.user, {
     //relation 같이가져옴
-    eager: true,
+    // eager: true,
     //연쇄
     cascade: true,
     //null 허용 (이미 null 값이 있다면 Error)
@@ -80,4 +80,7 @@ export class UserModel {
 
   @OneToMany(() => PostModel, (post) => post.author)
   posts: PostModel[];
+
+  @Column({ default: 0 })
+  count: number;
 }
